@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block doc_content %}
+<h3>Tài liệu:</h3>
+<section class="book-list">
+    {% for doc in docs %}
+    <div class="book-item">
+        <img src='{{ doc.image_url }}' alt="Bìa tài liệu">
+        <h2>{{ doc.name }}</h2>
+        <div class="book-buttons">
+            <button class="btn-add" data-id="{{ doc.pk }}">Thêm vào danh sách</button>
+            <button class="btn-read" data-id="{{ doc.pk }}">Đọc online</button>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<script>
+    document.querySelectorAll('.btn-read').forEach(button => {
+        button.addEventListener('click', () => {
+            const documentId = button.getAttribute('data-id');
+            window.location.href = `#`.replace('0', documentId);
+        });
+    });
+</script>
+{% endblock doc_content %}

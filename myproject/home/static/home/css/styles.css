@@ -1,0 +1,211 @@
+/* Phong cách tổng thể */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font chữ hiện đại */
+    background-color: #eaeaea; /* Màu nền nhẹ nhàng */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Thanh điều hướng (Navbar) */
+nav {
+    background-color: #3f51b5;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    overflow: visible;
+}
+
+/* Phần logo */
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 10px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background-color: #303f9f;
+    transform: translateY(-2px);
+}
+
+/* Phần đăng nhập */
+.user-login {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.user-login img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.user-login:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px; /* Bên dưới Navbar */
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    min-width: 160px;
+    padding: 5px 0;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+    color: #3f51b5;
+}
+
+/* Hiển thị dropdown khi hover */
+.user-login:hover .dropdown {
+    display: block;
+}
+
+/* Thanh tìm kiếm */
+header {
+    background-color: #a5a6b1;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-input {
+    width: 50%;
+    max-width: 600px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.search-input:focus {
+    outline: 2px solid #bb86fc;
+}
+
+.search-icon {
+    color: white;
+    font-size: 1.8em;
+}
+
+/* Hiệu ứng tổng thể */
+* {
+    transition: all 0.2s ease-in-out;
+}
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-item {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book-item img {
+    width: 150px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.book-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.book-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-add {
+    background-color: #4caf50;
+    color: white;
+}
+
+.btn-add:hover {
+    background-color: #388e3c;
+}
+
+.btn-read {
+    background-color: #2196f3;
+    color: white;
+}
+
+.btn-read:hover {
+    background-color: #1976d2;
+}
+.pdf-viewer {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.btn-download1 {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-download1:hover {
+    background-color: #45a049;
+}

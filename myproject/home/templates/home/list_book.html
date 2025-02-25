@@ -1,0 +1,26 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block list_content %}
+<main class="read-list">
+    <div class="read-item">
+        <img src="{% static "home/images/dacnhantam.jpg" %}" alt="Bìa sách">
+        <div class="read-info">
+            <h2>Tên sách đã đọc</h2>
+            <p>Đã đọc: 10/100 chương</p>
+            <p>2 ngày trước</p>
+        </div>
+        <div class="read-actions">
+            <!-- Sử dụng Font Awesome cho các icon -->
+            <button class="btn-icon" title="Tải về">
+                <i class="fas fa-download"></i>
+            </button>
+            <button class="btn-icon" title="Đọc tiếp">
+                <i class="fas fa-book-open"></i>
+            </button>
+            <button class="btn-icon" title="Xoá">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </div>
+    </div>
+</main>
+{% endblock list_content %}

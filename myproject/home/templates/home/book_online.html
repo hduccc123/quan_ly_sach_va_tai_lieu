@@ -1,0 +1,19 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block book_online_content %}
+<h2>Đọc sách: {{ books.name }}</h2>
+
+<div class="pdf-viewer" style="height: 80vh;">
+    <iframe 
+    src="{{ books.books_pdf_url }}" 
+    width="100%" 
+    height="100%" 
+    frameborder="0" 
+    allowfullscreen>
+</iframe>
+</div>
+<a href="{{ books.books_pdf_url }}" download class="btn-download1" target="_blank">
+    Tải xuống PDF
+</a>
+{% endblock book_online_content %}

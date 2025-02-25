@@ -1,0 +1,83 @@
+{% extends "home/base.html" %}
+{%load static%}
+{% block description_content%}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+        }
+        .book-cover img {
+            height:400px;
+            width: 250px;
+            border-radius: 10px;
+        }
+        .book-info h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .tags span {
+            background-color: #e0e0e0;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .buttons button {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons button:hover {
+            background-color: #0369a1;
+        }
+        .description {
+            margin-top: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-cover">
+            <img src="{{ books.image_url }}" alt="Bìa sách">
+        </div>
+        <div class="book-info">
+            <h1>{{ books.name }}</h1>
+            <p><strong>Tác giả:</strong> {{ books.author }}</p>
+            <div class="buttons">
+                <!-- Button Đọc ngay không dùng <a href> -->
+                <button class="btn-read" data-id="{{ books.pk }}">Đọc ngay</button>
+                <button>Lưu sách</button>
+            </div>
+            <div class="description">
+                <p><strong>Mô tả:</strong> {{ books.description|linebreaks }}</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Bắt sự kiện click cho button Đọc ngay
+        document.querySelector('.btn-read').onclick = function () {
+            const bookId = this.getAttribute('data-id');
+            window.location.href = `{% url 'read_book_online' 0 %}`.replace('0', bookId);
+        };
+    </script>
+    
+</body>
+</html>
+{%endblock description_content%}

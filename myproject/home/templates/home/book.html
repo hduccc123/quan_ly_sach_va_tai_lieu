@@ -1,0 +1,33 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block book_content %}
+<h3>Sách:</h3>
+<section class="book-list">
+    {% for book in books %}
+    <div class="book-item">
+        <img src='{{ book.image_url }}' alt="Bìa sách">
+        <h2>{{ book.name }}</h2>
+        <div class="book-buttons">
+            <button class="btn-add" data-id="{{ book.pk }}">Thêm vào danh sách</button>
+            <button class="btn-read" data-id="{{ book.pk }}">Đọc online</button>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+<script>
+    //document.querySelectorAll('.btn-add').forEach(button => {
+    //    button.addEventListener('click', () => {
+    //        const bookId = button.getAttribute('data-id');
+    //        window.location.href = `/add-to-list/${bookId}/`; // Thay thế bằng URL thực tế
+    //    });
+    //});
+
+    document.querySelectorAll('.btn-read').forEach(button => {
+        button.addEventListener('click', () => {
+            const bookId = button.getAttribute('data-id');
+            window.location.href = `{% url 'read_online' 0 %}`.replace('0', bookId);
+        });
+    });
+</script>
+{% endblock book_content %}
